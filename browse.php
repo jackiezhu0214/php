@@ -25,7 +25,7 @@
     <div class=top>
         <?php echo $username;?>
         您好,<br>
-        注册
+        注册<a href="login.php?action=login"> 注销</a>
         <a href="login.php">登陆</a>
 
 

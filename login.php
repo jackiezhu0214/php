@@ -33,13 +33,15 @@ if(!empty($_POST)){
     $username=isset($_POST['username'])?$_POST['username']:'';
     $password=isset($_POST['password'])?$_POST['password']:'';
 
+
+    //sql查询登陆
     //1.连接服务器 打开数据库
     $link=mysqli_connect('localhost','root','root','20171001') or die("数据库连接失败");
     //2.设置字符集
     mysqli_set_charset($link,"utf8");
     //3.定义sql语句
     $sql="select * from `userinfo` where `username`='$username' and `password`='$password'";
-    echo $sql;
+    #echo $sql;
     //4.执行查询
     $res=mysqli_query($link,$sql);
 
@@ -51,7 +53,7 @@ if(!empty($_POST)){
 
 
 
-        //设置cookie
+        //登陆成功设置cookie
         //islogin 1
         //username $username
         if(isset($_POST['rem'])&&$_POST['rem']='rem'){

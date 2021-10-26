@@ -18,5 +18,4 @@ create table `order`(
 insert into `userinfo` (`username`,`password`,`permission`,`alias`) values
 ("20171001-admin","123456","admin","chujiaqi"),
 ("20171001-1","123456","user","user1")
-
 insert info `userinfo` set `username`="20171001-1"
