@@ -59,8 +59,6 @@
 
                         } */
 
-                        //3.一行行读取，并返还关联数组
-
                         $page_size=3;//每页显示的记录数
                         $max_page=ceil($num_row/$page_size);//最大页码
 
@@ -71,7 +69,7 @@
                         //sql查询
                         $sql="select * from `order` limit $lim,$page_size";
                         $res=mysqli_query($link,$sql);
-
+                        //3.一行行读取，并返还关联数组
                         while($row=mysqli_fetch_assoc($res)){
                             //在此以get的方式传送id参数
                             echo "

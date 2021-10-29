@@ -86,11 +86,11 @@
 
     //执行sql语句 update
     //判断登陆username与表单中的username是否相同
-    if(!empty($_POST)&&$_COOKIE['username']==$row['username']){
+    if(!empty($_POST)){
         $room=isset($_POST['room'])?$_POST['room']:'';
         $date=isset($_POST['date'])?$_POST['date']:'';
 
-        $sql="update `order` set `date`='$date',`username`='$username',`room`='$room'";
+        $sql=$_COOKIE['username']==$row['username']?"update `order` set `date`='$date',`username`='$username',`room`='$room'":'1=2';
         #echo $sql;
         //执行sql语句
         $res=mysqli_query($link,$sql);
@@ -102,9 +102,7 @@
         }
 
 
-    }else{
-            #echo "<script>alert('这不是你的预约')</script>";
-            exit("<script>alert('这不是你的预约')</script>");
+    
     }
 
 

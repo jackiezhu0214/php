@@ -75,23 +75,22 @@
     //执行sql语句 delete
 
     //判断登陆username与表单中的username是否相同
-    if(!empty($_POST)&&$_COOKIE['username']==$row['username']){
+    if(!empty($_POST)){
         $id=isset($_POST['id'])?$_POST['id']:null;
         
-        $sqli="delete from `order` where `id`=$id";
+        $sqli=$_COOKIE['username']==$row['username']?"delete from `order` where `id`=$id":'1=2';
         #echo $sql;
         //执行sql语句
         $res=mysqli_query($link,$sqli);
         //判断是否成功
-        if($res){
+        if($res&&$_COOKIE['username']==$row['username']){
             echo "<script>alert('删除成功')</script>";
         }else{
             echo "<script>alert('删除失败')</script>";
         }
 
 
-    }else{
-        echo "<script>alert('这不是你的预约')</script>";
+    
     }
 
 
